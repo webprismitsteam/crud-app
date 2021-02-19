@@ -26,6 +26,7 @@ $(() => {
         (submit_button).attr('disabled', true).html(before_send_button_text);
       },
       error: function(xhr) {
+        // xhr - XMLHttpRequest
         console.log('Error Message: '+xhr.status);
         // $('#doc-details .after-submit.msg-red').text('Server Error.').show();
         // $('#form_create_division .button').attr('disabled', false).html('<i class="fa fa-plus-circle"></i> Add Doctor');
