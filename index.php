@@ -9,9 +9,9 @@
     <h1 class="mb-3 pb-3 border-bottom">CRUD App</h1>
 
     <h2>C - Create</h2>
-    <form class="form-inline mb-3 pb-3 border-bottom" id="crud_form">
-      <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name" placeholder="Jane Doe">
-      <input type="email" class="form-control mb-2 mr-sm-2" id="email" name="email" placeholder="jane@mail.com">
+    <form class="form-inline mb-3 pb-3 border-bottom" id="crud_form_for_create">
+      <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name" placeholder="Jane Doe" autocomplete="off">
+      <input type="email" class="form-control mb-2 mr-sm-2" id="email" name="email" placeholder="jane@mail.com" autocomplete="off">
       <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
     
@@ -23,6 +23,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th scope="col" colspan="2">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -35,6 +36,8 @@
             <th scope="row"><?= $participant['ptcpt_id']; ?></th>
             <td><?= $participant['ptcpt_name']; ?></td>
             <td><?= $participant['ptcpt_email']; ?></td>
+            <td><button class="btn btn-primary btn-sm btn-edit" data-id="<?= $participant['ptcpt_id']; ?>" data-name="<?= $participant['ptcpt_name']; ?>" data-email="<?= $participant['ptcpt_email']; ?>">Edit</button></td>
+            <td><button class="btn btn-danger btn-sm">Delete</td>
           </tr>
 
           <?php
@@ -43,11 +46,20 @@
         </tbody>
       </table>
     </div>
+
+    <h2>U - Update</h2>
+    <form class="form-inline mb-3 pb-3 border-bottom" id="crud_form_for_update">
+      <input type="hidden" class="form-control mb-2 mr-sm-2" id="id" name="id" autocomplete="off">
+      <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name" placeholder="Jane Doe" autocomplete="off">
+      <input type="email" class="form-control mb-2 mr-sm-2" id="email" name="email" placeholder="jane@mail.com" autocomplete="off">
+      <button type="submit" class="btn btn-primary mb-2">Update</button>
+    </form>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  <!-- custom js -->
   <script src="assets/js/index.js"></script>
 </body>
 </html>
