@@ -50,6 +50,7 @@ $(() => {
     }); // end ajax
   });
 
+  // data fetch from button and set to the update form
   $('.btn-edit').click(function(e) {
     var update_form = $('#crud_form_for_update');
     
