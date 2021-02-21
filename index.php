@@ -15,7 +15,7 @@
       <button type="submit" class="btn btn-primary mb-2">Submit</button>
     </form>
     
-    <h2>R - Read</h2>
+    <h2>R - Read and D - Delete</h2>
     <div class="mb-3 pb-3 border-bottom">
       <table class="table table-bordered">
         <thead>
@@ -37,7 +37,7 @@
             <td><?= $participant['ptcpt_name']; ?></td>
             <td><?= $participant['ptcpt_email']; ?></td>
             <td><button class="btn btn-primary btn-sm btn-edit" data-id="<?= $participant['ptcpt_id']; ?>" data-name="<?= $participant['ptcpt_name']; ?>" data-email="<?= $participant['ptcpt_email']; ?>">Edit</button></td>
-            <td><button class="btn btn-danger btn-sm">Delete</td>
+            <td><button class="btn btn-danger btn-sm btn-del" data-id="<?= $participant['ptcpt_id']; ?>">Delete</td>
           </tr>
 
           <?php
