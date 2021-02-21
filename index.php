@@ -54,6 +54,13 @@
       <input type="email" class="form-control mb-2 mr-sm-2" id="email" name="email" placeholder="jane@mail.com" autocomplete="off">
       <button type="submit" class="btn btn-primary mb-2">Update</button>
     </form>
+
+    <h2>Single File Uploading</h2>
+    <form class="form-inline mb-3 pb-3 border-bottom" id="file_upload_form" enctype="multipart/form-data">
+      <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name" placeholder="Jane Doe" autocomplete="off">
+      <input type="file" id="your_file" name="your_file" />
+      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    </form>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
