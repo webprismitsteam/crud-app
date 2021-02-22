@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2021 at 07:42 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Feb 22, 2021 at 04:46 AM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,7 +39,8 @@ CREATE TABLE `participants` (
 --
 
 INSERT INTO `participants` (`ptcpt_id`, `ptcpt_name`, `ptcpt_email`) VALUES
-(1, 'Poonam', 'poonam@gmail.com');
+(1, 'Poonam', 'ponam@gmail.com'),
+(2, 'Archana', 'archana@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -58,6 +59,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `participants`
+--
+ALTER TABLE `participants`
+  ADD PRIMARY KEY (`ptcpt_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -66,6 +73,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `participants`
+--
+ALTER TABLE `participants`
+  MODIFY `ptcpt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
