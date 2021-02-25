@@ -212,4 +212,61 @@ $(() => {
       }, // end success
     }); // ajax end
   });
+
+  // multiple_files_upload_form submit
+  $('#multiple_files_upload_form').submit(function(e) {
+    e.preventDefault();
+    
+    var form = $(this);
+    var submit_button = $(this).find('button[type="submit"]');
+    var submit_method = 'POST';
+    var submit_url = 'models/participants/ajax_multiple_files_upload_form_submit.php';
+
+    var default_button_text = 'Submit';
+    var before_send_button_text = 'Please Wait ...';
+    var after_save_button_text = 'Saved';
+
+    var formdata = new FormData();
+    formdata.append('name', form.find('#name').val());
+    var number_of_files = (form.find('#your_file').prop('files')).length;
+    for(let i=0; i<number_of_files; i++) {
+      formdata.append( 'your_file[]', form.find('#your_file').prop('files')[i] );
+    }
+
+    $.ajax({
+      type: submit_method,
+      url: submit_url,
+      data: formdata,
+
+      cache: false,
+      contentType: false,
+      processData: false,
+      context: this,
+
+      beforeSend: function() {
+        (submit_button).attr('disabled', true).html(before_send_button_text);
+      },
+
+      error: function(xhr) {
+        console.log('Error Message: ' + xhr.status);
+      },
+
+      success: function(res) {
+        console.log("Success Message: " + res);
+        // response = JSON.parse(response);
+        var { status, msg } = JSON.parse(res);
+
+        if (status) {
+          setTimeout(function () {
+            submit_button.attr("disabled", true).html(after_save_button_text);
+            // window.location = redirect_url;
+            location.reload(true);
+          }, 1000);
+        } else {
+          submit_button.attr("disabled", false).html(default_button_text);
+          error_msg.text(msg).show();
+        }
+      }, // end success
+    }); // ajax end
+  });
 })
